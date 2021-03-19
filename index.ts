@@ -60,7 +60,7 @@ export function parseForESLint(code: string, options?: any): ESLintHtmlParseResu
         let lineNumber: number = 0;
         
         for (; lineNumber < lineBreakIndices.length; lineNumber++) {
-            if (index < lineBreakIndices[lineNumber]) {
+            if (index <= lineBreakIndices[lineNumber]) {
                 break;
             }
         }
@@ -69,7 +69,7 @@ export function parseForESLint(code: string, options?: any): ESLintHtmlParseResu
         let tabNumber: number = -1;
 
         while (++tabNumber < tabIndices.length) {
-            if (tabIndices[tabNumber] < lineBreakIndices[lineNumber - 1]) {
+            if (tabIndices[tabNumber] <= lineBreakIndices[lineNumber - 1]) {
                 continue;
             }
 
